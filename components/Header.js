@@ -18,7 +18,7 @@ function Header() {
     newsHeader.classList.add('header');
 
     const newsDate = document.createElement('span');
-    newsHeader.classList.add('date');
+    newsDate.classList.add('date');
     newsDate.textContent = 'MARCH 28, 2020';
 
     const newsTitle = document.createElement('h1');
@@ -38,7 +38,3 @@ function Header() {
     return newsHeader;
 }
 console.log(Header());
-// const headerContainer = document.querySelector('.header-container')
-// const test = Header({date: 'MARCH 28, 2020', title: 'Lambda Times', temp: '98°'})
-// headerContainer.appendChild(test);
-

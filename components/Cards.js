@@ -23,11 +23,28 @@
 axios
     .get('https://lambda-times-api.herokuapp.com/articles')
     .then((data) => {
-        console.log(data.data.articles.bootstrap);
+        const cardContainer = document.querySelector('.cards-container')
+        //is there a cleaner way to write this?
+        data.data.articles.bootstrap.forEach((item) => {
+            cardContainer.appendChild(articleMaker(item));
+        });
+        data.data.articles.javascript.forEach((item) => {
+            cardContainer.appendChild(articleMaker(item));
+        });
+        data.data.articles.jquery.forEach((item) => {
+            cardContainer.appendChild(articleMaker(item));
+        });
+        data.data.articles.node.forEach((item) => {
+            cardContainer.appendChild(articleMaker(item));
+        });
+        data.data.articles.technology.forEach((item) => {
+            cardContainer.appendChild(articleMaker(item));
+        });
     })
     .catch((err) => {
         console.log(err);
     })
+
 function articleMaker(obj) {
     const articleCard = document.createElement('div');
     articleCard.classList.add('card');
@@ -57,9 +74,9 @@ function articleMaker(obj) {
 
     //add event listener
     articleCard.addEventListener('click', (event) => {
-        console.log(articleTitle.headline)
+        console.log(`This is the headline: ${obj.headline}`)
     })
 
-    return articleMaker;
+    return articleCard;
 
     }
