@@ -38,3 +38,4 @@ function Header() {
     return newsHeader;
 }
 console.log(Header());
+

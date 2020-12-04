@@ -22,22 +22,31 @@
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 axios
     .get('https://lambda-times-api.herokuapp.com/articles')
-    .then((data) => {
+    .then((res) => {
         const cardContainer = document.querySelector('.cards-container')
         //is there a cleaner way to write this?
-        data.data.articles.bootstrap.forEach((item) => {
+        // const objectData = res.data.articles;
+        // Object.keys(objectData).forEach((item) => {
+        //     const articles = objectData[item]
+        //     articles.forEach((article) => {
+        //         cardMaker(article)
+        //     })
+        // })
+        // })
+
+        res.data.articles.bootstrap.forEach((item) => {
             cardContainer.appendChild(articleMaker(item));
         });
-        data.data.articles.javascript.forEach((item) => {
+        res.data.articles.javascript.forEach((item) => {
             cardContainer.appendChild(articleMaker(item));
         });
-        data.data.articles.jquery.forEach((item) => {
+        res.data.articles.jquery.forEach((item) => {
             cardContainer.appendChild(articleMaker(item));
         });
-        data.data.articles.node.forEach((item) => {
+        res.data.articles.node.forEach((item) => {
             cardContainer.appendChild(articleMaker(item));
         });
-        data.data.articles.technology.forEach((item) => {
+        res.data.articles.technology.forEach((item) => {
             cardContainer.appendChild(articleMaker(item));
         });
     })
